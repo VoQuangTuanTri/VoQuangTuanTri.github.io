@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web bán thiết bị mạng</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../css/logon.css">
+    
+</head>
+<body>
+
+    <script>
+        let slideIndex = 0;
+        showSlides();
+        
+        function showSlides() {
+          let i;
+          let slides = document.getElementsByClassName("mySlides");
+          let dots = document.getElementsByClassName("dot");
+          for (i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";  
+          }
+          slideIndex++;
+          if (slideIndex > slides.length) {slideIndex = 1}    
+          for (i = 0; i < dots.length; i++) {
+            dots[i].className = dots[i].className.replace(" active", "");
+          }
+          slides[slideIndex-1].style.display = "block";  
+          dots[slideIndex-1].className += " active";
+          setTimeout(showSlides, 3500); // Chuyển hình 3.5s 
+        }
+
+        function store(){
+
+            var name = document.getElementById('name');
+            var pw = document.getElementById('pw');
+            var lowerCaseLetters = /[a-z]/g;
+            var upperCaseLetters = /[A-Z]/g;
+            var numbers = /[0-9]/g;
+
+            if(name.value.length == 0){
+                alert('Vui lòng điền email');
+
+            }else if(pw.value.length == 0){
+                alert('Vui lòng điền mật khẩu');
+
+            }else if(name.value.length == 0 && pw.value.length == 0){
+                alert('Vui lòng điền email và mật khẩu');
+
+            }else if(pw.value.length > 8){
+                alert('Tối đa 8 ký tự');
+
+            }else if(!pw.value.match(numbers)){
+                alert('Vui lòng thêm 1 chữ số');
+
+            }else if(!pw.value.match(upperCaseLetters)){
+                alert('Vui lòng thêm 1 ký tự in hoa');
+
+            }else if(!pw.value.match(lowerCaseLetters)){
+                alert('Vui lòng thêm 1 ký tự viết thường');
+
+            }else{
+                localStorage.setItem('name', name.value);
+                localStorage.setItem('pw', pw.value);
+                alert('Tài khoản của bạn đã được tạo thành công');
+            }
+            }
+
+            //checking
+            function check(){
+            var storedName = localStorage.getItem('name');
+            var storedPw = localStorage.getItem('pw');
+
+            var userName = document.getElementById('userName');
+            var userPw = document.getElementById('userPw');
+            var userRemember = document.getElementById("rememberMe");
+
+            if(userName.value == storedName && userPw.value == storedPw){
+                alert('Bạn đã đăng nhập thành công');
+            }else{
+                alert('Lỗi đăng nhập');
+            }
+            }
+
+        </script>
+
+    <div class="wrapper">
+        <header>
+            <a href="index.html"><img src="../img/cellphones.png" style="height: 55px; vertical-align: center;float:left;padding-top: 30px;padding-left:640px;"></a>
+            <ul class="top-menu">
+                <li><a style="color: aliceblue;" href=""><b>TRANG CHỦ</b></a></li>
+                <li><a style="color: aliceblue;" href=""><b>SẢN PHẨM</b></a></li>
+                <li><a style="color: aliceblue;" href=""><b>GIỚI THIỆU</b></a></li>
+                <li><a style="color: aliceblue;" href="auth.html"><b>ĐĂNG KÝ</b></a></li>
+                <li><a style="color: aliceblue;" href="auth.html"><b>ĐĂNG NHẬP</b></a></li>
+
+        </header>
+        <nav>
+        <p style="font-size:20px; padding-top: 33px; padding-left: 85px ; font-family: Calibri;">DANH MỤC SẢN PHẨM</p>  
+        </nav>
+        <div class="content">
+            <section>
+                <div class="c1"> 
+                    
+                    <div style="height: 50px;
+                                width: 320px;
+                                background: rgb(245, 245, 245);
+                                border-radius: 30px;
+                                border: 1px solid red;">
+            
+                    </div>
+                <div class="c2">
+                <ul id="menu1"><br><br><br><br>
+                    <li><a href="#" title="Social Network">Bộ phát Wifi di động</a></li>
+                    <br><hr style="border: black 1solid;"><br>
+                    <li><a href="#" title="Social Network">Thiết bị phát sóng Wifi</a></li>
+                    <br><hr style="border: black 1solid;"><br>
+                    <li><a href="#" title="Social Network">Bộ kích sóng Wifi</a></li>
+                    <br><hr style="border: black 1solid;"><br>    
+                    <li><a href="#" title="Social Network">Phụ kiện mạng</a></li>
+                    <br><hr style="border: black 1solid;"><br>  
+                    <li><a href="#" title="Social Network">Hub-Switch</a></li>
+                    <br><hr style="border: black 1solid;"><br>  
+                    <li><a href="#" title="Social Network">Card mạng</a></li>
+                    <br><hr style="border: black 1solid;"><br>            
+                
+                </ul>
+                <div class="boder1">
+                    <p style="font-size:20px; padding-top: 14px; padding-left: 52px ; font-family: Calibri;">LỌC THEO GIÁ SẢN PHẨM</p>  
+                </div>
+                <ul id="menu1"><br>
+                    <li><a href="#" title="Social Network">Dưới 100.000 VND</a></li>
+                    <br><hr style="border: black 1solid;"><br>
+                    <li><a href="#" title="Social Network">Từ 100k - 300k</a></li>
+                    <br><hr style="border: black 1solid;"><br>
+                    <li><a href="#" title="Social Network">Từ 300k - 500k</a></li>
+                    <br><hr style="border: black 1solid;"><br>    
+                    <li><a href="#" title="Social Network">Từ 500k - 1 Triệu</a></li>
+                    <br><hr style="border: black 1solid;"><br>  
+                    <li><a href="#" title="Social Network">Từ 1 Triệu - 3 Triệu</a></li>
+                    <br><hr style="border: black 1solid;"><br>  
+                    <li><a href="#" title="Social Network">Từ 3 Triệu - 5 Triệu</a></li>
+                    <br><hr style="border: black 1solid;"><br>  
+                    <div class="boder1">
+                        <p style="font-size:20px; padding-top: 14px; padding-left: 64px ; font-family: Calibri;">SẢN PHẨM BÁN CHẠY</p>  
+                    </div><br>
+                    <a href="index.html"><img src="../img/yeuthich1.png" style="height: 150px;"></a>
+                    <a href="index.html"><img src="../img/yeuthich2.png" style="height: 150px;"></a><br>
+                    <a href="index.html"><img src="../img/yeuthich3.png" style="height: 150px;"></a>
+                </section>
+            
+
+    <div class="login">
+        <form name='form-login'>
+    
+            <h1>ĐĂNG KÝ</h1>
+    
+            <label for="name">Email</label>
+            <input type="email" id="name" placeholder="abc@gmail.com" required>
+    
+            <label for="pw">Mật khẩu</label>
+            <input type="password"
+                   id= "pw"
+                   placeholder="Mật khẩu" required>
+    
+            <ul class="helper-text">
+                <li class="length">Tối đa 8 ký tự</li>
+                <li class="lowercase">Chứa ký tự viết hoa</li>
+                <li class="lowercase">Chứa ký tự viết thường</li>
+            </ul>
+            <input id="rgstr_btn" type="submit" value="Đăng ký" onclick="store()">
+    
+        </form>
+    </div>
+    
+    <div class="login">
+        <form name='form-login'>
+    
+            <h1>ĐĂNG NHẬP</h1>
+    
+            <label for="userName">Email</label>
+            <input type="email" id="userName" placeholder="abc@gmail.com" required>
+    
+            <label for="userPw">Mật khẩu</label>
+            <input type="password" id= "userPw" placeholder="Mật khẩu" required>
+    
+            <div id="remember">
+                <input type="checkbox" value="lsRememberMe" id="rememberMe"
+                       style="display: inline-block;">
+                <label>Ghi nhớ tài khoản</label>
+            </div>
+    
+            <input id= "login_btn" type="submit" value="Đăng nhập" onclick="check()">
+    
+        </form>
+    </div>
+
+    </div>
+    <footer>
+        <div class="container">
+            <div class="noi-dung about">
+                <h2>GIỚI THIỆU</h2>
+                <p>Công ty TNHH Thương Mại và Dịch Vụ Kỹ Thuật DIỆU PHÚC - GPĐKKD: 0316172372 cấp tại Sở KH & ĐT TP. HCM. Địa chỉ văn phòng: 350-352 Võ Văn Kiệt, Phường Cô Giang, Quận 1, Thành phố Hồ Chí Minh, Việt Nam. Điện thoại: 028.7108.9666.<br>
+                    GPĐKKD: 0316172372 cấp tại Sở KH & ĐT TP. HCM<br>
+                    Địa chỉ văn phòng: 350-352 Võ Văn Kiệt, Phường Cô Giang, Quận 1, Thành phố Hồ Chí Minh, Việt Nam<br>
+                    Điện thoại: 028.7108.9666<br>
+                    Website: www.cellphones.com.vn
+                <ul class="social-icon">
+                    <li><a href="https://www.facebook.com/CellphoneSVietnam/?locale=vi_VN"><i class="fa fa-facebook"></i></a></li>
+                    <li><a href="https://twitter.com/CellphoneSvn"><i class="fa fa-twitter"></i></a></li>
+                    <li><a href="https://www.instagram.com/cellphonesvn/"><i class="fa fa-instagram"></i></a></li>
+                    <li><a href="https://www.youtube.com/c/CellphoneSOfficial"><i class="fa fa-youtube"></i></a></li>
+                </ul><br><br><br><br>
+            <img src="../img/thongbao.png">
+            </div>
+            <div class="noi-dung links">
+                <h2>Đường Dẫn</h2>
+                <ul>
+                    <li><a href="#">Trang Chủ</a></li>
+                    <li><a href="#">Về Chúng Tôi</a></li>
+                    <li><a href="#">Thông Tin Liên Lạc</a></li>
+                    <li><a href="#">Dịch Vụ</a></li>
+                    <li><a href="#">Điều Kiện Chính Sách</a></li>
+                </ul>
+            </div>
+            <div class="noi-dung contact">
+                <h2>Thông Tin Liên Hệ</h2>
+                <ul class="info">
+                    <li>
+                        <span><i class="fa fa-map-marker"></i></span>
+                        <span>350-352 Võ Văn Kiệt,<br />
+                            Phường Cô Giang, Quận 1, Thành phố Hồ Chí Minh<br />
+                            Việt Nam</span>
+                    </li>
+                    <li>
+                        <span><i class="fa fa-phone"></i></span>
+                        <p><a href="#">028.7108.9666</a>
+                    </li><br><br><br><br><br><br>
+                    <li>
+                        <span><i class="fa fa-envelope"></i></span>
+                        <p><a href="#">cellphones@gmail.com</a></p>
+                </li><br><br><br>
+                    <li>
+                        <form class="form">
+                            <input type="email" class="form__field" placeholder="Đăng Ký Subscribe Email" />
+                            <button type="button" class="btn btn--primary  uppercase">Gửi</button>
+                        </form>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+</div>
+</body>
+</html>
